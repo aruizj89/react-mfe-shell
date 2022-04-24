@@ -36,7 +36,7 @@ module.exports = {
       name: 'SHELL',
       filename: 'remoteEntry.js',
       remotes: {
-        POC: 'POC@http://localhost:3002/remoteEntry.js',
+        POC: 'POC@https://react-mfe-poc-app.web.app/remoteEntry.js',
       },
       shared: [
         {
