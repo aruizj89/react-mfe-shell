@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { AppBar, Paper, Typography } from '@mui/material';
+import { AppBar, Container, Paper, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React from 'react';
+import { POC } from './modules/poc';
 
 const theme = createTheme({
   palette: {
@@ -16,7 +17,11 @@ const App = () => {
         <StyledAppBar sx={{ p: 1, px: 4 }}>
           <Typography variant="h6">Art Ruiz</Typography>
         </StyledAppBar>
-        <Paper sx={{ borderRadius: 0, flexGrow: 1, pt: 6 }}></Paper>
+        <Paper elevation={4} sx={{ borderRadius: 0, flexGrow: 1, pt: 6 }}>
+          <Container sx={{ pt: 3 }}>
+            <POC />
+          </Container>
+        </Paper>
       </MinHeight>
     </ThemeProvider>
   );
