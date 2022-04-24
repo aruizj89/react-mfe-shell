@@ -36,8 +36,11 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'react-mfe-shell',
+      name: 'SHELL',
       filename: 'remoteEntry.js',
+      remotes: {
+        POC: 'POC@http://localhost:3002/remoteEntry.js',
+      },
       shared: [
         {
           ...deps,
