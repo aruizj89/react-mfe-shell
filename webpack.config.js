@@ -7,6 +7,11 @@ module.exports = {
   devServer: {
     port: 3001,
   },
+  output: {
+    filename: '[name].[contenthash].js',
+    publicPath: '/',
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
   module: {
     rules: [
       {
@@ -38,6 +43,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'SHELL',
       filename: 'remoteEntry.js',
+      exposes: {
+        './ShellContext': './src/contexts/ShellContext',
+      },
       remotes: {
         POC: 'POC@http://localhost:3002/remoteEntry.js',
       },
@@ -50,6 +58,7 @@ module.exports = {
             singleton: true,
           },
         },
+        './src/contexts/ShellContext',
       ],
     }),
     new HtmlWebpackPlugin({
