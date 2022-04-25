@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { AppBar, Container, Paper, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React from 'react';
+import { ShellContextProvider } from './contexts/ShellContext';
 import { POC } from './modules/poc';
 
 const theme = createTheme({
@@ -13,16 +14,18 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <MinHeight className="App">
-        <StyledAppBar sx={{ p: 1, px: 4 }}>
-          <Typography variant="h6">Art Ruiz</Typography>
-        </StyledAppBar>
-        <Paper elevation={4} sx={{ borderRadius: 0, flexGrow: 1, pt: 6 }}>
-          <Container sx={{ pt: 3 }}>
-            <POC />
-          </Container>
-        </Paper>
-      </MinHeight>
+      <ShellContextProvider>
+        <MinHeight className="App">
+          <StyledAppBar sx={{ p: 1, px: 4 }}>
+            <Typography variant="h6">Art Ruiz</Typography>
+          </StyledAppBar>
+          <Paper elevation={4} sx={{ borderRadius: 0, flexGrow: 1, pt: 6 }}>
+            <Container sx={{ pt: 3 }}>
+              <POC />
+            </Container>
+          </Paper>
+        </MinHeight>
+      </ShellContextProvider>
     </ThemeProvider>
   );
 };
