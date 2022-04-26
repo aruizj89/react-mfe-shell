@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { AppBar, Container, Paper, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Header } from './components/Header';
 import { ShellContextProvider } from './contexts/ShellContext';
 import { POC } from './modules/poc';
 
@@ -12,18 +12,17 @@ const theme = createTheme({
 });
 
 const App = () => {
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.palette.background.default;
+    return () => (document.body.style.backgroundColor = null);
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <ShellContextProvider>
+        <Header />
         <MinHeight className="App">
-          <StyledAppBar sx={{ p: 1, px: 4 }}>
-            <Typography variant="h6">Art Ruiz</Typography>
-          </StyledAppBar>
-          <Paper elevation={4} sx={{ borderRadius: 0, flexGrow: 1, pt: 6 }}>
-            <Container sx={{ pt: 3 }}>
-              <POC />
-            </Container>
-          </Paper>
+          <POC />
         </MinHeight>
       </ShellContextProvider>
     </ThemeProvider>
@@ -33,12 +32,7 @@ const App = () => {
 const MinHeight = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-`;
-
-const StyledAppBar = styled(AppBar)`
-  backdrop-filter: blur(25px);
-  background: rgba(0, 0, 0, 0.1);
+  min-height: calc(100vh - 49px);
 `;
 
 export default App;
