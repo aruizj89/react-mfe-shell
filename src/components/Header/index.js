@@ -1,28 +1,26 @@
 import styled from '@emotion/styled';
-import { AppBar, Typography, useTheme } from '@mui/material';
+import { Person } from '@mui/icons-material/';
+import { Divider, IconButton, Toolbar } from '@mui/material';
 import React from 'react';
 
 export const Header = () => {
-  const theme = useTheme();
-
   return (
-    <StyledAppBar
-      bc={theme.palette.divider}
-      sx={{ p: 1, px: 4 }}
-      position="sticky"
-    >
-      <Typography color="" variant="h6">
-        Art Ruiz
-      </Typography>
-    </StyledAppBar>
+    <Container>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <div></div>
+        <div>
+          <IconButton>
+            <Person />
+          </IconButton>
+        </div>
+      </Toolbar>
+      <Divider />
+    </Container>
   );
 };
 
-const StyledAppBar = styled(AppBar)`
+const Container = styled.div`
   backdrop-filter: blur(25px);
-  background: transparent;
-  ${({ bc }) => `border-bottom: 1px solid ${bc};`}
-  box-shadow: none;
-  flex-direction: row;
-  justify-content: space-between;
+  position: sticky;
+  top: 0;
 `;

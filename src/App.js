@@ -1,15 +1,16 @@
-import styled from '@emotion/styled';
+import { Container } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React, { useEffect } from 'react';
 import { Header } from './components/Header';
+import { MinHeight } from './components/MinHeight';
+import { SideNav } from './components/SideNav';
 import { ShellContextProvider } from './contexts/ShellContext';
 import { POC } from './modules/poc';
+import { palette } from './palette';
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+const drawerWidth = 240;
+
+const theme = createTheme({ palette });
 
 const App = () => {
   useEffect(() => {
@@ -20,19 +21,16 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ShellContextProvider>
-        <Header />
-        <MinHeight className="App">
-          <POC />
+        <MinHeight className="App" drawerWidth={drawerWidth}>
+          <Header />
+          <SideNav drawerWidth={drawerWidth} />
+          <Container sx={{ p: 3 }}>
+            <POC />
+          </Container>
         </MinHeight>
       </ShellContextProvider>
     </ThemeProvider>
   );
 };
-
-const MinHeight = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 49px);
-`;
 
 export default App;
