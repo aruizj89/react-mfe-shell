@@ -21,12 +21,12 @@ export const Toolbar = () => (
           target="_blank"
         >
           <IconButton>
-            <GitHub />
+            <LinkedIn />
           </IconButton>
         </a>
         <a href="https://github.com/aruizj89" rel="noreferrer" target="_blank">
           <IconButton>
-            <LinkedIn />
+            <GitHub />
           </IconButton>
         </a>
       </div>
