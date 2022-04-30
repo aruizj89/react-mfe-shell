@@ -1,16 +1,14 @@
 import { Container } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import React, { useEffect } from 'react';
 import { Header } from './components/Header';
 import { MinHeight } from './components/MinHeight';
 import { SideNav } from './components/SideNav';
 import { ShellContextProvider } from './contexts/ShellContext';
 import { POC } from './modules/poc';
-import { palette } from './palette';
+import { theme } from './theme';
 
 const drawerWidth = 240;
-
-const theme = createTheme({ palette });
 
 const App = () => {
   useEffect(() => {
