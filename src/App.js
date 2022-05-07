@@ -1,11 +1,11 @@
-import { Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import React, { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRouter } from './components/AppRouter';
 import { Header } from './components/Header';
 import { MinHeight } from './components/MinHeight';
 import { SideNav } from './components/SideNav';
 import { ShellContextProvider } from './contexts/ShellContext';
-import { POC } from './modules/poc';
 import { theme } from './theme';
 
 const drawerWidth = 240;
@@ -19,13 +19,13 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ShellContextProvider>
-        <MinHeight className="App" drawerWidth={drawerWidth}>
-          <Header />
-          <SideNav drawerWidth={drawerWidth} />
-          <Container sx={{ p: 3 }}>
-            <POC />
-          </Container>
-        </MinHeight>
+        <BrowserRouter>
+          <MinHeight className="App" drawerWidth={drawerWidth}>
+            <Header />
+            <SideNav drawerWidth={drawerWidth} />
+            <AppRouter />
+          </MinHeight>
+        </BrowserRouter>
       </ShellContextProvider>
     </ThemeProvider>
   );

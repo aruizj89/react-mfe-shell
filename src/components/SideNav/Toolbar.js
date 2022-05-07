@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { Links } from './Links';
 
 export const Toolbar = () => (
   <Container>
@@ -32,6 +33,7 @@ export const Toolbar = () => (
       </div>
     </MuiToolbar>
     <Divider />
+    <Links />
   </Container>
 );
 
