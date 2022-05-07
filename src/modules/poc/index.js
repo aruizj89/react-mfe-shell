@@ -1,5 +1,6 @@
 import React from 'react';
 import { FailedImport } from '../../components/FailedImport';
+import { LoadingPage } from '../../components/LoadingPage';
 
 const POCApp = React.lazy(() =>
   import('POC/App').catch(() => ({ default: () => <FailedImport /> }))
@@ -7,7 +8,7 @@ const POCApp = React.lazy(() =>
 
 export const POC = () => {
   return (
-    <React.Suspense fallback="Loading...">
+    <React.Suspense fallback={<LoadingPage />}>
       {POCApp && <POCApp />}
     </React.Suspense>
   );
