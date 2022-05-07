@@ -1,11 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const deps = require('./package.json').dependencies;
+const path = require('path');
 
 module.exports = {
   mode: 'development',
   devServer: {
     port: 3001,
+    historyApiFallback: true,
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -66,4 +68,9 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
   ],
+  resolve: {
+    alias: {
+      modules: path.resolve('src/modules'),
+    },
+  },
 };
