@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
-import { POC } from 'modules/poc';
+import { POC } from '../../modules/poc';
 
 export const AppRouter = () => {
   const routes = useRoutes([
