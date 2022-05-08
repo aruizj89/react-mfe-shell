@@ -35,8 +35,13 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'SHELL',
       filename: 'remoteEntry.js',
+      exposes: {
+        './ShellContext': './src/contexts/ShellContext',
+      },
       remotes: {
         POC: 'POC@https://react-mfe-poc-app.web.app/remoteEntry.js',
+        PORTFOLIO:
+          'PORTFOLIO@https://art-ruiz-portfolio.web.app/remoteEntry.js',
       },
       shared: [
         {
@@ -47,6 +52,7 @@ module.exports = {
             singleton: true,
           },
         },
+        './src/contexts/ShellContext',
       ],
     }),
     new HtmlWebpackPlugin({
