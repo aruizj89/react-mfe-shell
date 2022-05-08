@@ -49,6 +49,7 @@ module.exports = {
       },
       remotes: {
         POC: 'POC@http://localhost:3002/remoteEntry.js',
+        PORTFOLIO: 'PORTFOLIO@http://localhost:3003/remoteEntry.js',
       },
       shared: [
         {
