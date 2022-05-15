@@ -11,7 +11,7 @@ import { Links } from './Links';
 
 export const Toolbar = () => (
   <Container>
-    <MuiToolbar sx={{ justifyContent: 'space-between' }}>
+    <MuiToolbar sx={{ justifyContent: 'space-between', zIndex: 1000 }}>
       <Typography color="" variant="h6">
         Art Ruiz
       </Typography>
