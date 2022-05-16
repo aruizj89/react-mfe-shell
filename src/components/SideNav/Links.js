@@ -1,9 +1,12 @@
+import { AccountTree, AssignmentInd, PhotoLibrary } from '@mui/icons-material';
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import { AssignmentInd, AccountTree, PhotoLibrary } from '@mui/icons-material';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useShellContext } from '../../contexts/ShellContext';
 
 export const Links = () => {
+  const { setOpenDrawer } = useShellContext();
+
   const links = useMemo(
     () => [
       {
@@ -28,11 +31,13 @@ export const Links = () => {
     []
   );
 
+  const closeDrawer = useCallback(() => setOpenDrawer(false), [setOpenDrawer]);
+
   return (
     <List>
       {links.map(({ href, icon, key, text }) => (
         <Link key={key} to={href}>
-          <ListItem button>
+          <ListItem button onClick={closeDrawer}>
             <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText>{text}</ListItemText>
           </ListItem>
