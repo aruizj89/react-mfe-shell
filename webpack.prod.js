@@ -39,8 +39,9 @@ module.exports = {
         './ShellContext': './src/contexts/ShellContext',
       },
       remotes: {
-        PhotoLibraryMFE:
+        PhotoLibraryProd:
           'PhotoLibrary@https://art-ruiz-photo-library.web.app//remoteEntry.js',
+        PhotoLibraryDev: 'PhotoLibrary@http://localhost:3004/remoteEntry.js',
         POC: 'POC@https://react-mfe-poc-app.web.app/remoteEntry.js',
         PORTFOLIO:
           'PORTFOLIO@https://art-ruiz-portfolio.web.app/remoteEntry.js',

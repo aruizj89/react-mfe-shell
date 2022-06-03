@@ -50,7 +50,8 @@ module.exports = {
       remotes: {
         POC: 'POC@http://localhost:3002/remoteEntry.js',
         PORTFOLIO: 'PORTFOLIO@http://localhost:3003/remoteEntry.js',
-        PhotoLibraryMFE: 'PhotoLibrary@http://localhost:3004/remoteEntry.js',
+        PhotoLibraryDev: 'PhotoLibrary@http://localhost:3004/remoteEntry.js',
+        PhotoLibraryProd: 'PhotoLibrary@http://localhost:3004/remoteEntry.js',
       },
       shared: [
         {

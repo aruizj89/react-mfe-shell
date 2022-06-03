@@ -3,7 +3,13 @@ import { FailedImport } from '../components/FailedImport';
 import { LoadingPage } from '../components/LoadingPage';
 
 const PhotoLibraryMFE = React.lazy(() =>
-  import('PhotoLibraryMFE/App').catch(() => ({
+  import('PhotoLibraryDev/App').catch(() => ({
+    default: () => <PhotoLibraryProd />,
+  }))
+);
+
+const PhotoLibraryProd = React.lazy(() =>
+  import('PhotoLibraryProd/App').catch(() => ({
     default: () => <FailedImport />,
   }))
 );
