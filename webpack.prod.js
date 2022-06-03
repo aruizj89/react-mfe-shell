@@ -40,7 +40,7 @@ module.exports = {
       },
       remotes: {
         PhotoLibraryProd:
-          'PhotoLibrary@https://art-ruiz-photo-library.web.app//remoteEntry.js',
+          'PhotoLibrary@https://art-ruiz-photo-library.web.app/remoteEntry.js',
         PhotoLibraryDev: 'PhotoLibrary@http://localhost:3004/remoteEntry.js',
         POC: 'POC@https://react-mfe-poc-app.web.app/remoteEntry.js',
         PORTFOLIO:
